@@ -1,0 +1,21 @@
+body {
+  background : white;
+  overflow : hidden;
+}
+
+.alg-left {
+  text-align : left;
+}
+
+.alg-right {
+  text-align : right;
+}
+
+.alg-center {
+  text-align : center;
+}
+
+.login-box {
+
+  margin-top : 20%;
+}

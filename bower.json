@@ -1,0 +1,25 @@
+{
+  "name": "peluqueria",
+  "version": "1.0.0",
+  "authors": [
+    "Carlos Bellotti <cjbellotti@hotmail.com>"
+  ],
+  "description": "Sistema de gestion de peluqueria",
+  "main": "public/index.html",
+  "keywords": [
+    "peluqueria"
+  ],
+  "license": "BSD",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "backbone": "~1.2.1",
+    "normalize.css": "~3.0.3"
+  }
+}
