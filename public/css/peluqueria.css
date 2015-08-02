@@ -19,3 +19,29 @@ body {
 
   margin-top : 20%;
 }
+
+.content {
+
+  background : #ddddff;
+  height : 70vh;
+}
+
+.bar {
+  width : 98%;
+  margin : 1%;
+}
+
+.list {
+
+  margin : 0 auto;
+  width : 95%;
+
+
+}
+
+.list .list-group {
+  overflow : hidden;
+  overflow-y : scroll;
+
+  height : 64vh;
+}

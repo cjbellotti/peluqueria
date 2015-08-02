@@ -6,8 +6,9 @@ App.Views.Customers = Backbone.View.extend({
 
   }, 
 
-  renderList : function () {
+  render : function () {
 
+    $('.caption').html('Clientes');
     this.$el.html(this.listTemplate());
 
   }

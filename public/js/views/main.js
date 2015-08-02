@@ -8,12 +8,21 @@ App.Views.Main = Backbone.View.extend({
 
   events : {
 
-    "click li" : "runApplication"
+    "click .nav li" : "runApplication"
 
   },
 
   runApplication : function (e) {
-    debugger;
+
+    e.preventDefault();
+    e.stopPropagation();
+    var url = e.target.href;
+    var viewName = url.substring(url.indexOf('#') + 1);
+    var view = new App.Views[viewName]();
+
+    this.$el.find('.content').html(view.el);
+    view.render();
+
   },
 
   render : function () {
@@ -22,19 +31,19 @@ App.Views.Main = Backbone.View.extend({
       applications : [
         {
           title : 'Clientes',
-          url : 'customers-list'
+          url : 'Customers'
         },
         {
           title : 'Profesionales',
-          url : 'profesionals-list'
+          url : 'Profesionals'
         },
         {
           title : 'Trabajos',
-          url : 'tasks-list'
+          url : 'Tasks'
         },
         {
           title : 'Turnos',
-          url : 'turns-list'
+          url : 'Turns'
         }
       ]
 
