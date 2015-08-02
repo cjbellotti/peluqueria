@@ -1,152 +1,39 @@
 <div class="list">
-  <div>
-    <button class="btn btn-success glyphicon glyphicon-plus"></button>
-  </div>
-  <div>
-    <div class="list-group">
-      <div class="list-group-item">
-        <a href="">
-        <div class="media">
-          <div class="media-left media-middle">
-            <img src="img/1.png" width="50px" height="50px" alt="">
-          </div>
-          <div class="media-body">
-            <h4>Nombre Cliente</h4>
-            <p>15-4556-9089 - Colombia 897</p>
-          </div>
-        </div>
-        </a>
+  <div class="list-bar">
+    <div class="row">
+      <div class="col-md-8">
+        <button id="add-customer" class="btn btn-success">+ Cliente Nuevo</button>
       </div>
-      <div class="list-group-item">
-        <a href="">
-        <div class="media">
-          <div class="media-left media-middle">
-            <img src="img/1.png" width="50px" height="50px" alt="">
-          </div>
-          <div class="media-body">
-            <h4>Nombre Cliente</h4>
-            <p>15-4556-9089 - Colombia 897</p>
-          </div>
-        </div>
-        </a>
-      </div>
-      <div class="list-group-item">
-        <a href="">
-        <div class="media">
-          <div class="media-left media-middle">
-            <img src="img/1.png" width="50px" height="50px" alt="">
-          </div>
-          <div class="media-body">
-            <h4>Nombre Cliente</h4>
-            <p>15-4556-9089 - Colombia 897</p>
-          </div>
-        </div>
-        </a>
-      </div>
-      <div class="list-group-item">
-        <a href="">
-        <div class="media">
-          <div class="media-left media-middle">
-            <img src="img/1.png" width="50px" height="50px" alt="">
-          </div>
-          <div class="media-body">
-            <h4>Nombre Cliente</h4>
-            <p>15-4556-9089 - Colombia 897</p>
-          </div>
-        </div>
-        </a>
-      </div>
-      <div class="list-group-item">
-        <a href="">
-        <div class="media">
-          <div class="media-left media-middle">
-            <img src="img/1.png" width="50px" height="50px" alt="">
-          </div>
-          <div class="media-body">
-            <h4>Nombre Cliente</h4>
-            <p>15-4556-9089 - Colombia 897</p>
-          </div>
-        </div>
-        </a>
-      </div>
-      <div class="list-group-item">
-        <a href="">
-        <div class="media">
-          <div class="media-left media-middle">
-            <img src="img/1.png" width="50px" height="50px" alt="">
-          </div>
-          <div class="media-body">
-            <h4>Nombre Cliente</h4>
-            <p>15-4556-9089 - Colombia 897</p>
-          </div>
-        </div>
-        </a>
-      </div>
-      <div class="list-group-item">
-        <a href="">
-        <div class="media">
-          <div class="media-left media-middle">
-            <img src="img/1.png" width="50px" height="50px" alt="">
-          </div>
-          <div class="media-body">
-            <h4>Nombre Cliente</h4>
-            <p>15-4556-9089 - Colombia 897</p>
-          </div>
-        </div>
-        </a>
-      </div>
-      <div class="list-group-item">
-        <a href="">
-        <div class="media">
-          <div class="media-left media-middle">
-            <img src="img/1.png" width="50px" height="50px" alt="">
-          </div>
-          <div class="media-body">
-            <h4>Nombre Cliente</h4>
-            <p>15-4556-9089 - Colombia 897</p>
-          </div>
-        </div>
-        </a>
-      </div>
-      <div class="list-group-item">
-        <a href="">
-        <div class="media">
-          <div class="media-left media-middle">
-            <img src="img/1.png" width="50px" height="50px" alt="">
-          </div>
-          <div class="media-body">
-            <h4>Nombre Cliente</h4>
-            <p>15-4556-9089 - Colombia 897</p>
-          </div>
-        </div>
-        </a>
-      </div>
-      <div class="list-group-item">
-        <a href="">
-        <div class="media">
-          <div class="media-left media-middle">
-            <img src="img/1.png" width="50px" height="50px" alt="">
-          </div>
-          <div class="media-body">
-            <h4>Nombre Cliente</h4>
-            <p>15-4556-9089 - Colombia 897</p>
-          </div>
-        </div>
-        </a>
-      </div>
-      <div class="list-group-item">
-        <a href="">
-        <div class="media">
-          <div class="media-left media-middle">
-            <img src="img/1.png" width="50px" height="50px" alt="">
-          </div>
-          <div class="media-body">
-            <h4>Nombre Cliente</h4>
-            <p>15-4556-9089 - Colombia 897</p>
-          </div>
-        </div>
-        </a>
+      <div class="col-md-4">
+        <input type="text" id="find" class="form-control" placeholder="Buscar...">
       </div>
     </div>
   </div>
-</div>
+  <div>
+    <div class="list-group">
+      <div class="list-group-item item-data">
+        <div class="row">
+          <div class="col-md-8">
+              <div class="media">
+                <div class="media-left media-middle">
+                  <img src="img/1.png" width="50px" height="50px" alt="">
+                </div>
+                <div class="media-body">
+                  <h4>Nombre Cliente</h4>
+                  <p>15-4556-9087 - Colombia 897</p>
+                </div>
+              </div>
+          </div>
+          <div class="col-md-4">
+            <div class="col-xs-6"></div>
+            <div class="col-xs-6">
+              <button class="btn btn-info glyphicon glyphicon-search" data-toggle="tooltip" data-placement="bottom" title="Ver Cliente"></button>
+              <button class="btn btn-primary glyphicon glyphicon-pencil" data-toggle="tooltip" data-placement="bottom" title="Modificar Cliente"></button>
+              <button class="btn btn-danger glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="bottom" title="Eliminar Cliente"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  

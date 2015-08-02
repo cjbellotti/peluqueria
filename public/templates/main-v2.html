@@ -1,0 +1,18 @@
+<div class="page-header">
+  <h1>Peluqueria <small class="caption"></small></h1>
+</div>
+<div class="row">
+  <div class="col-md-2">
+    <div class="list-group application">
+      {% for app in applications %}
+
+         <a href="#{{ app.url }}" class="list-group-item">{{ app.title }}</a>
+
+      {% endfor %}
+    </div>
+  </div>
+  <div class="col-md-10">
+    <div class="content">
+    </div>
+  </div>
+</div>

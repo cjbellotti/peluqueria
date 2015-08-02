@@ -2,13 +2,13 @@ App.Views.Main = Backbone.View.extend({
 
   initialize : function () {
 
-    this.template = swig.compile(getTemplate('templates/main.html'));
+    this.template = swig.compile(getTemplate('templates/main-v2.html'));
 
   },
 
   events : {
 
-    "click .nav li" : "runApplication"
+    "click .application" : "runApplication"
 
   },
 
