@@ -30,7 +30,6 @@ App.Views.Customers = Backbone.View.extend({
         element.hide();
       else
         element.show();
-      
 
     }
 
@@ -41,11 +40,10 @@ App.Views.Customers = Backbone.View.extend({
     var view = new App.Views.Customers();
     $('#modals').html(view.el);
     view.renderForm();
-    /*view.$el.modal({
+    view.$el.modal({
        backdrop : 'static',
        keyboard : false
-    });*/
-    view.$el.modal('show');
+    });
 
   },
 
@@ -70,6 +68,10 @@ App.Views.Customers = Backbone.View.extend({
         self.$el.remove();
     });
 
+    this.$el.on('shown.bs.modal', function () {
+        console.log('Show!!!');
+        self.$el.find('#nombre').focus();
+    });
   }
 
 });
