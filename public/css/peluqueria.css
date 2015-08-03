@@ -63,3 +63,8 @@ body {
 .list .list-group::-webkit-scrollbar-thumb {
   background : #6d98d9; 
 }
+
+.customers-form-menua {
+
+  border-right : 2px solid #2c5b91;
+}

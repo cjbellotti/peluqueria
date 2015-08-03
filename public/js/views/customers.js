@@ -4,6 +4,7 @@ App.Views.Customers = Backbone.View.extend({
 
     this.listTemplate = swig.compile(getTemplate('templates/customers-list.html'));
     this.formTemplate = swig.compile(getTemplate('templates/customers-form.html'));
+    this.dataTemplate = swig.compile(getTemplate('templates/customers-data.html'));
 
   }, 
 
@@ -62,6 +63,7 @@ App.Views.Customers = Backbone.View.extend({
     this.$el.css('z-index', '1060');
 
     this.$el.html(this.formTemplate());
+    this.$el.find('.customers-form-content').html(this.dataTemplate());
 
     var self = this;
     this.$el.on('hidden.bs.modal', function () {
