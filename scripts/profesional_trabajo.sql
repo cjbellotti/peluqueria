@@ -1,0 +1,8 @@
+use peluqueria;
+
+create table profesional_trabajo (
+	ID_PROFESIONAL INT(5) NOT NULL,
+	ID_TRABAJO INT(5) NOT NULL,
+	FOREIGN KEY(ID_PROFESIONAL) REFERENCES profesionales(id) ON DELETE CASCADE,
+	FOREIGN KEY(ID_TRABAJO) REFERENCES trabajos(id) ON DELETE CASCADE
+);
