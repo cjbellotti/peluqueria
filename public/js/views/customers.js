@@ -63,17 +63,17 @@ App.Views.Customers = Backbone.View.extend({
     this.$el.css('z-index', '1060');
 
     this.$el.html(this.formTemplate());
-    this.$el.find('.customers-form-content').html(this.dataTemplate());
+    //this.$el.find('.customers-form-content').html(this.dataTemplate());
 
     var self = this;
     this.$el.on('hidden.bs.modal', function () {
         self.$el.remove();
     });
 
-    this.$el.on('shown.bs.modal', function () {
+    /*this.$el.on('shown.bs.modal', function () {
         console.log('Show!!!');
         self.$el.find('#nombre').focus();
-    });
+    });*/
   }
 
 });

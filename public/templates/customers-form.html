@@ -3,15 +3,155 @@
     <div class="modal-header">
       <h3>Clientes</h3>
     </div>
-    <div class="modal-body">
+    <div class="modal-body" style="height : 43vh">
       <div class="row">
         <div class="col-md-2 customers-form-menu">
-          <div class="list-group">
-            <div class="list-group-item">Datos</div>
-            <div class="list-group-item">Historial</div>
+          <ul class="list-group">
+            <a href="#datos" class="list-group-item" data-toggle="tab">Datos</a>
+            <a href="#historial" class="list-group-item" data-toggle="tab">Historial</a>
+          </ul>
+        </div>
+        <div class="col-md-10 customers-form-content">
+          <div class="tab-content">
+            <div id="datos" class="tab-pane fade">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input id="nombre" class="form-control" type="text" name="nombre">
+                    <label for="apellido">Apellido</label>
+                    <input id="apellido" class="form-control" type="text" name="apellido">
+                    <label for="email">E-Mail</label>
+                    <input id="email" class="form-control" type="email" name="email">
+                    <label for="telefono">Telefono</label>
+                    <input id="telefono" class="form-control" type="text" name="telefono">
+                    <label for="domicilio">Domicilio</label>
+                    <input id="domicilio" class="form-control" type="text" name="domicilio">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="fecha-nacimiento">Fecha Nacimiento</label>
+                    <input id="fecha-nacimiento" class="form-control" type="date" name="fecha-nacimiento">
+                    <label for="descripcion">Descripcion</label>
+                    <textarea name="descripcion" id="descripcion" class="form-control" style="height: 30vh"></textarea>
+                </div>
+              </div>
+            </div>
+            <div id="historial" class="tab-pane fade in active">
+              <div class="customer-history">
+                <table class="table table-hover tabla-historial">
+                  <thead>
+                    <th>Fecha</th>
+                    <th>Profesional</th>
+                    <th>Cliente</th>
+                    <th>Descripcion</th>
+                    <th>Importe</th>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>22-05-2015</td>
+                      <td>Jorge</td>
+                      <td>Marita</td>
+                      <td>Corte y Color</td>
+                      <td>560</td>
+                    </tr>
+                    <tr>
+                      <td>22-05-2015</td>
+                      <td>Jorge</td>
+                      <td>Marita</td>
+                      <td>Corte y Color</td>
+                      <td>560</td>
+                    </tr>
+                    <tr>
+                      <td>22-05-2015</td>
+                      <td>Jorge</td>
+                      <td>Marita</td>
+                      <td>Corte y Color</td>
+                      <td>560</td>
+                    </tr>
+                    <tr>
+                      <td>22-05-2015</td>
+                      <td>Jorge</td>
+                      <td>Marita</td>
+                      <td>Corte y Color</td>
+                      <td>560</td>
+                    </tr>
+                    <tr>
+                      <td>22-05-2015</td>
+                      <td>Jorge</td>
+                      <td>Marita</td>
+                      <td>Corte y Color</td>
+                      <td>560</td>
+                    </tr>
+                    <tr>
+                      <td>22-05-2015</td>
+                      <td>Jorge</td>
+                      <td>Marita</td>
+                      <td>Corte y Color</td>
+                      <td>560</td>
+                    </tr>
+                    <tr>
+                      <td>22-05-2015</td>
+                      <td>Jorge</td>
+                      <td>Marita</td>
+                      <td>Corte y Color</td>
+                      <td>560</td>
+                    </tr>
+                    <tr>
+                      <td>22-05-2015</td>
+                      <td>Jorge</td>
+                      <td>Marita</td>
+                      <td>Corte y Color</td>
+                      <td>560</td>
+                    </tr>
+                    <tr>
+                      <td>22-05-2015</td>
+                      <td>Jorge</td>
+                      <td>Marita</td>
+                      <td>Corte y Color</td>
+                      <td>560</td>
+                    </tr>
+                    <tr>
+                      <td>22-05-2015</td>
+                      <td>Jorge</td>
+                      <td>Marita</td>
+                      <td>Corte y Color</td>
+                      <td>560</td>
+                    </tr>
+                    <tr>
+                      <td>22-05-2015</td>
+                      <td>Jorge</td>
+                      <td>Marita</td>
+                      <td>Corte y Color</td>
+                      <td>560</td>
+                    </tr>
+                    <tr>
+                      <td>22-05-2015</td>
+                      <td>Jorge</td>
+                      <td>Marita</td>
+                      <td>Corte y Color</td>
+                      <td>560</td>
+                    </tr>
+                    <tr>
+                      <td>22-05-2015</td>
+                      <td>Jorge</td>
+                      <td>Marita</td>
+                      <td>Corte y Color</td>
+                      <td>560</td>
+                    </tr>
+                    <tr>
+                      <td>22-05-2015</td>
+                      <td>Jorge</td>
+                      <td>Marita</td>
+                      <td>Corte y Color</td>
+                      <td>560</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="col-md-10 customers-form-content"></div>
       </div>
     </div>
     <div class="modal-footer">

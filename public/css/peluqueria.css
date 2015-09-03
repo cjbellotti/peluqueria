@@ -68,3 +68,17 @@ body {
 
   border-right : 2px solid #2c5b91;
 }
+
+.customers-form-content {
+}
+
+.customer-history {
+  overflow : hidden;
+  overflow-y : scroll;
+  height : 100%;
+}
+
+.tabla-historial {
+  height : 100%;
+}
+
