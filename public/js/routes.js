@@ -4,7 +4,7 @@ App.Router = Backbone.Router.extend({
 
     '' : 'main',
     'login' : 'login',
-    'customers-list' : 'customersList'
+    'Customers' : 'customersList'
 
   },
 
@@ -17,6 +17,14 @@ App.Router = Backbone.Router.extend({
   },
 
   customersList : function () {
+
+    var view = new App.Views.Customers();
+    $('.content').html(view.el);
+    view.renderList();
+
+  },
+
+  profesionalsList : function () {
 
     var view = new App.Views.Customers();
     $('#main').html(view.el);

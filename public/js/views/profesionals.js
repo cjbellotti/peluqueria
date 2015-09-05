@@ -1,4 +1,4 @@
-App.Views.Customers = Backbone.View.extend({
+App.Views.Profesionals = Backbone.View.extend({
 
   initialize : function (config) {
 
@@ -6,15 +6,15 @@ App.Views.Customers = Backbone.View.extend({
     this.callback = config.callback;
     this.model = config.model;
 
-    this.listTemplate = swig.compile(getTemplate('templates/customers-list.html'));
-    this.formTemplate = swig.compile(getTemplate('templates/customers-form.html'));
+    this.listTemplate = swig.compile(getTemplate('templates/profesionals-list.html'));
+    this.formTemplate = swig.compile(getTemplate('templates/profesionals-form.html'));
 
   }, 
 
   events : {
 
     "keyup #find" : "find",
-    "click #add-customer" : "addCustomer",
+    "click #add-profesional" : "addProfesional",
     "click #ver" : "ver",
     "click #modificar" : "modificar",
     "click #eliminar" : "eliminar",
@@ -42,10 +42,10 @@ App.Views.Customers = Backbone.View.extend({
 
   },
 
-  addCustomer : function (e) {
+  addProfesional : function (e) {
 
     var self = this;
-    var view = new App.Views.Customers({
+    var view = new App.Views.Profesionals({
       callback : function () {
         self.render();
       }
@@ -64,16 +64,16 @@ App.Views.Customers = Backbone.View.extend({
 
     var self = this;
     var id = $(e.target).attr('id-data')
-    this.model = new App.Models.Cliente({ ID : id });
+    this.model = new App.Models.Profesional({ ID : id });
     this.model.fetch({
       success : function (res) {
 
         var data = res.toJSON();
         var turnos = new App.Collections.Turnos();
-        turnos.fetchByCliente(id, function () {
+        turnos.fetchByProfesional(id, function () {
 
           data.turnos = turnos.toJSON();
-          var view = new App.Views.Customers({ 
+          var view = new App.Views.Profesionals({ 
 
             model : self.model,
             callback : function () {
@@ -98,16 +98,16 @@ App.Views.Customers = Backbone.View.extend({
   modificar : function (e) {
 
     var id = $(e.target).attr('id-data')
-    this.model = new App.Models.Cliente({ ID : id });
+    this.model = new App.Models.Profesional({ ID : id });
     this.model.fetch({
       success : function (res) {
 
         var data = res.toJSON();
         var turnos = new App.Collections.Turnos();
-        turnos.fetchByCliente(id, function () {
+        turnos.fetchByProfesional(id, function () {
 
           data.turnos = turnos.toJSON();
-          var view = new App.Views.Customers();
+          var view = new App.Views.Profesionals();
           $('#modals').append(view.el);
           view.renderForm(data);
           view.$el.modal('show');
@@ -124,15 +124,15 @@ App.Views.Customers = Backbone.View.extend({
 
     var self = this;
     var id = $(e.target).attr('id-data')
-    var model = new App.Models.Cliente({ ID : id });
+    var model = new App.Models.Profesional({ ID : id });
     model.fetch({
 
       success : function () {
 
         var view = new App.Views.DeleteDialog({
 
-          titulo : 'Eliminar Cliente',
-          texto : 'Desea eliminar a ' + model.get('NOMBRE') + ' ' + model.get('APELLIDO'),
+          titulo : 'Eliminar Profesional',
+          texto : 'Desea eliminar a ' + model.get('NOMBRE'),
           onok : function () {
             model.destroy();
             self.render();
@@ -155,22 +155,12 @@ App.Views.Customers = Backbone.View.extend({
   guardar : function () {
 
     if (!this.model)
-      this.model = new App.Models.Cliente();
+      this.model = new App.Models.Profesional();
 
     var nombre = this.$el.find('#nombre').val();
-    var apellido = this.$el.find('#apellido').val();
-    var email = this.$el.find('#email').val();
-    var telefono = this.$el.find('#telefono').val();
-    var domicilio = this.$el.find('#domicilio').val();
-    var fecha_nacimiento = this.$el.find('#fecha-nacimiento').val();
     var descripcion = this.$el.find('#descripcion').val();
 
     this.model.set('NOMBRE', nombre);
-    this.model.set('APELLIDO', apellido);
-    this.model.set('EMAIL', email);
-    this.model.set('TELEFONO', telefono);
-    this.model.set('DIRECCION', domicilio);
-    this.model.set('FECHA_NACIMIENTO', fecha_nacimiento);
     this.model.set('DESCRIPCION', descripcion);
     this.model.save();
 
@@ -184,13 +174,13 @@ App.Views.Customers = Backbone.View.extend({
   render : function () {
 
     var self = this;
-    $('.caption').html('Clientes');
-    var clientes = new App.Collections.Clientes();
-    clientes.fetch({
+    $('.caption').html('Profesionales');
+    var profesionales = new App.Collections.Profesionales();
+    profesionales.fetch({
 
       success : function (data) {
         self.$el.html(self.listTemplate({
-          clientes : data.toJSON()
+          profesionales : data.toJSON()
         }));
 
       }

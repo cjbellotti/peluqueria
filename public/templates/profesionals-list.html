@@ -2,7 +2,7 @@
   <div class="list-bar">
     <div class="row">
       <div class="col-md-8">
-        <button id="add-customer" class="btn btn-success">+ Cliente Nuevo</button>
+        <button id="add-profesional" class="btn btn-success">+ Profesional Nuevo</button>
       </div>
       <div class="col-md-4">
         <input type="text" id="find" class="form-control" placeholder="Buscar...">
@@ -11,7 +11,7 @@
   </div>
   <div>
     <div class="list-group">
-        {% for cliente in clientes %}
+        {% for profesional in profesionales %}
         <div class="list-group-item item-data">
           <div class="row">
             <div class="col-md-8">
@@ -20,17 +20,16 @@
                     <img src="img/1.png" width="50px" height="50px" alt="">
                   </div>
                   <div class="media-body">
-                    <h4>{{cliente.NOMBRE}} {{ cliente.APELLIDO }}</h4>
-                    <p>{{cliente.TELEFONO}} - {{ cliente.EMAIL }} - {{ cliente.DIRECCION }}</p>
+                    <h4>{{profesional.NOMBRE}} {{ profesional.APELLIDO }}</h4>
                   </div>
                 </div>
             </div>
             <div class="col-md-4">
               <div class="col-xs-6"></div>
               <div class="col-xs-6">
-                <button id="ver" class="btn btn-info glyphicon glyphicon-search" data-toggle="tooltip" data-placement="bottom" title="Ver Cliente" id-data="{{ cliente.ID }}"></button>
-                <button id="modificar" class="btn btn-primary glyphicon glyphicon-pencil" data-toggle="tooltip" data-placement="bottom" title="Modificar Cliente" id-data="{{ cliente.ID }}"></button>
-                <button id="eliminar" class="btn btn-danger glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="bottom" title="Eliminar Cliente" id-data="{{ cliente.ID }}"></button>
+                <button id="ver" class="btn btn-info glyphicon glyphicon-search" data-toggle="tooltip" data-placement="bottom" title="Ver Profesional" id-data="{{ profesional.ID }}"></button>
+                <button id="modificar" class="btn btn-primary glyphicon glyphicon-pencil" data-toggle="tooltip" data-placement="bottom" title="Modificar Profesional" id-data="{{ profesional.ID }}"></button>
+                <button id="eliminar" class="btn btn-danger glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="bottom" title="Eliminar Profesional" id-data="{{ profesional.ID }}"></button>
               </div>
             </div>
           </div>

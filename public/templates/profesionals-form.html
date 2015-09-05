@@ -1,7 +1,7 @@
 <div class="modal-dialog" style="width: 70%">
   <div class="modal-content">
     <div class="modal-header">
-      <h3>Clientes</h3>
+      <h3>Profesionales</h3>
     </div>
     <div class="modal-body" style="height : 43vh">
       <div class="row">
@@ -13,36 +13,20 @@
         </div>
         <div class="col-md-10 customers-form-content">
           <div class="tab-content">
-            <div id="datos" class="tab-pane fade  in active">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="nombre">Nombre</label>
-                    <input id="nombre" class="form-control" type="text" name="nombre" value="{{ NOMBRE }}">
-                    <label for="apellido">Apellido</label>
-                    <input id="apellido" class="form-control" type="text" name="apellido" value="{{ APELLIDO}}">
-                    <label for="email">E-Mail</label>
-                    <input id="email" class="form-control" type="email" name="email" value="{{ EMAIL }}">
-                    <label for="telefono">Telefono</label>
-                    <input id="telefono" class="form-control" type="text" name="telefono" value="{{ TELEFONO }}">
-                    <label for="domicilio">Domicilio</label>
-                    <input id="domicilio" class="form-control" type="text" name="domicilio" value="{{ DIRECCION }}">
-                  </div>
-                </div>
-                <div class="col-md-6">
-                    <label for="fecha-nacimiento">Fecha Nacimiento</label>
-                    <input id="fecha-nacimiento" class="form-control" type="date" name="fecha-nacimiento" value="{{ FECHA_NACIMIENTO | date('Y-m-d') }}">
-                    <label for="descripcion">Descripcion</label>
-                    <textarea name="descripcion" id="descripcion" class="form-control" style="height: 30vh">{{ DESCRIPCION }}</textarea>
-                </div>
-              </div>
+            <div id="datos" class="tab-pane fade in active">
+	              <div class="form-group">
+	                <label for="nombre">Nombre</label>
+	                <input id="nombre" class="form-control" type="text" name="nombre" value="{{ NOMBRE }}">
+	                <label for="descripcion">Descripcion</label>
+	                <textarea name="descripcion" id="descripcion" class="form-control" style="height: 30vh">{{ DESCRIPCION }}</textarea>
+	              </div>
             </div>
             <div id="historial" class="tab-pane fade">
               <div class="customer-history">
                 <table class="table table-hover tabla-historial">
                   <thead>
                     <th>Fecha</th>
-                    <th>Profesional</th>
+                    <th>Cliente</th>
                     <th>Descripcion</th>
                     <th>Importe</th>
                   </thead>
@@ -50,7 +34,7 @@
                     {% for turno in turnos %}
                     <tr>
                       <td>{{ turno.FECHA | date('d-m-Y') }}</td>
-                      <td>{{ turno.PROFESIONAL }}</td>
+                      <td>{{ turno.CLIENTE }}</td>
                       <td>{{ turno.DESCRIPCION }}</td>
                       <td>{{ turno.IMPORTE }}</td>
                     </tr>
