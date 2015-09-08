@@ -1,0 +1,92 @@
+	.my-calendar  {
+		margin : 0 0 0 0;
+		padding : 0 0 0 0;
+		border: 1px solid #7094B8;
+		border-radius : 5px;
+	}
+
+	.mc-profesionales {
+		width : 18%;
+		display : inline-block;
+		vertical-align: top;
+		margin : -2px -2px 0 0;
+		padding-top : 3px;
+	}
+
+	.mc-profesionales > div{
+		height : 30px;
+		border: 1px solid #5C85D6;
+		margin : -1px -2px 1px 0;
+	}
+
+	.mc-profesionales > div:first-child {
+
+		border-top-left-radius: 5px;
+		text-align: center;
+		padding-top: 1px;
+
+	} 
+
+	.mc-turnos {
+
+		width : 80.8%;
+		overflow : hidden;
+		overflow-x : scroll;
+		display : inline-block;
+
+	}
+
+	.mc-turnos::-webkit-scrollbar {
+		width: 5px;
+		height : 10px;
+		background : #7094B8;
+		border-radius: 3px;
+	}
+
+	.mc-turnos::-webkit-scrollbar-thumb {
+		background: #1C3753;
+		border-radius: 3px;
+	}
+	.hs-cell {
+
+		display : inline-block;
+		height : 30px;
+		width: 45px;
+		border: 1px solid #C2D1E0;
+		margin : 0px -5px 0 0;
+		vertical-align: top;
+
+	}
+
+	.hs-cell-header {
+		background : #A9BFE9;
+	}
+	.hs-cell > p {
+		width : 200px;
+	}
+
+	.hs-content {
+
+		width : 2204px;
+	}
+
+	.hs-ini-turno {
+		border-top : 1px solid black;
+		border-bottom : 1px solid black;
+		border-left : 1px solid black;
+		border-right : hidden;
+	}
+
+	.hs-body-turno {
+		border-left : 0px;
+		border-right : 0px;
+		border-top : 1px solid black;
+		border-bottom : 1px solid black;
+	}
+
+	.hs-fin-turno {
+		border-top : 1px solid black;
+		border-bottom : 1px solid black;
+		border-left : hidden;
+		border-right : 2px solid black;
+	}

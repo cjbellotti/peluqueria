@@ -1,0 +1,24 @@
+		<div class="my-calendar">
+			<div class="mc-profesionales">
+				<div><input type="date" class="mc-date"></div>
+				{% for profesional in profesionales %}
+					<div>{{ profesional.NOMBRE }}</div>
+				{% endfor %}
+			</div>
+			<div class="mc-turnos">
+				<div class="hs-content">
+					<div class="hs-row">
+						{% for columna in columnas %}
+						<div class="hs-cell hs-cell-header">{{ columna.header }}</div>
+						{% endfor %}
+					</div>
+					{% for profesional in profesionales %}
+					<div class="hs-row">
+						{% for columna in columnas %}
+						<div class="hs-cell"></div>
+						{% endfor %}
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>

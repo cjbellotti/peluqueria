@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Test Turnos</title>
+	  <link rel="stylesheet" href="vendor/normalize.css/normalize.css">
+	  <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
+	  <link rel="stylesheet" href="css/peluqueria.css">
+
+</head>
+<style>
+	.my-calendar  {
+		margin : 0 0 0 0;
+		padding : 0 0 0 0;
+		border: 1px solid #7094B8;
+		border-radius : 5px;
+	}
+
+	.mc-profesionales {
+		width : 18%;
+		display : inline-block;
+		vertical-align: top;
+		margin : -2px -2px 0 0;
+		padding-top : 3px;
+	}
+
+	.mc-profesionales > div{
+		height : 30px;
+		border: 1px solid #5C85D6;
+		margin : -1px -2px 1px 0;
+	}
+
+	.mc-profesionales > div:first-child {
+
+		border-top-left-radius: 5px;
+		text-align: center;
+		padding-top: 1px;
+
+	} 
+
+	.mc-turnos {
+
+		width : 80.8%;
+		overflow : hidden;
+		overflow-x : scroll;
+		display : inline-block;
+
+	}
+
+	.mc-turnos::-webkit-scrollbar {
+		width: 5px;
+		height : 10px;
+		background : #7094B8;
+		border-radius: 3px;
+	}
+
+	.mc-turnos::-webkit-scrollbar-thumb {
+		background: #1C3753;
+		border-radius: 3px;
+	}
+	.hs-cell {
+
+		display : inline-block;
+		height : 30px;
+		width: 45px;
+		border: 1px solid #C2D1E0;
+		margin : 0px -5px 0 0;
+		vertical-align: top;
+
+	}
+
+	.hs-cell-header {
+		background : #A9BFE9;
+	}
+	.hs-cell > p {
+		width : 200px;
+	}
+
+	.hs-content {
+
+		width : 2204px;
+	}
+
+	.hs-ini-turno {
+		border-top : 1px solid black;
+		border-bottom : 1px solid black;
+		border-left : 1px solid black;
+		border-right : hidden;
+	}
+
+	.hs-body-turno {
+		border-left : 0px;
+		border-right : 0px;
+		border-top : 1px solid black;
+		border-bottom : 1px solid black;
+	}
+
+	.hs-fin-turno {
+		border-top : 1px solid black;
+		border-bottom : 1px solid black;
+		border-left : hidden;
+		border-right : 2px solid black;
+	}
+
+</style>
+<body>
+	
+	<div style="width : 70%; margin : 0 auto">
+		<div class="my-calendar">
+			<div class="mc-profesionales">
+				<div><input type="date"></div>
+				<div>Profesional 1</div>
+				<div>Profesional 2</div>
+				<div>Profesional 3</div>
+			</div>
+			<div class="mc-turnos">
+				<div class="hs-content">
+					<div class="hs-row">
+						<div class="hs-cell hs-cell-header">9:15</div>
+						<div class="hs-cell hs-cell-header">9:30</div>
+						<div class="hs-cell hs-cell-header">9:00</div>
+						<div class="hs-cell hs-cell-header">9:45</div>
+						<div class="hs-cell hs-cell-header">10:00</div>
+						<div class="hs-cell hs-cell-header">10:15</div>
+						<div class="hs-cell hs-cell-header">10:30</div>
+						<div class="hs-cell hs-cell-header">10:45</div>
+						<div class="hs-cell hs-cell-header">11:00</div>
+						<div class="hs-cell hs-cell-header">11:15</div>
+						<div class="hs-cell hs-cell-header">11:30</div>
+						<div class="hs-cell hs-cell-header"></div>
+						<div class="hs-cell hs-cell-header"></div>
+						<div class="hs-cell hs-cell-header"></div>
+						<div class="hs-cell hs-cell-header"></div>
+						<div class="hs-cell hs-cell-header"></div>
+						<div class="hs-cell hs-cell-header"></div>
+						<div class="hs-cell hs-cell-header"></div>
+						<div class="hs-cell hs-cell-header"></div>
+						<div class="hs-cell hs-cell-header"></div>
+						<div class="hs-cell hs-cell-header"></div>
+						<div class="hs-cell hs-cell-header"></div>
+						<div class="hs-cell hs-cell-header"></div>
+						<div class="hs-cell hs-cell-header"></div>
+						<div class="hs-cell hs-cell-header"></div>
+						<div class="hs-cell hs-cell-header"></div>
+						<div class="hs-cell hs-cell-header"></div>
+						<div class="hs-cell hs-cell-header"></div>
+						<div class="hs-cell hs-cell-header"></div>
+						<div class="hs-cell hs-cell-header"></div>
+						<div class="hs-cell hs-cell-header"></div>
+						<div class="hs-cell hs-cell-header"></div>
+						<div class="hs-cell hs-cell-header"></div>
+						<div class="hs-cell hs-cell-header"></div>
+						<div class="hs-cell hs-cell-header"></div>
+						<div class="hs-cell hs-cell-header"></div>
+						<div class="hs-cell hs-cell-header"></div>
+						<div class="hs-cell hs-cell-header"></div>
+						<div class="hs-cell hs-cell-header"></div>
+						<div class="hs-cell hs-cell-header"></div>
+						<div class="hs-cell hs-cell-header"></div>
+						<div class="hs-cell hs-cell-header"></div>
+						<div class="hs-cell hs-cell-header"></div>
+						<div class="hs-cell hs-cell-header"></div>
+						<div class="hs-cell hs-cell-header"></div>
+						<div class="hs-cell hs-cell-header"></div>
+						<div class="hs-cell hs-cell-header"></div>
+						<div class="hs-cell hs-cell-header"></div>
+					</div>
+					<div class="hs-row">
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell hs-ini-turno"><p>Julia Perez - Jorge - 11:15</p></div>
+						<div class="hs-cell hs-body-turno"></div>
+						<div class="hs-cell hs-body-turno"></div>
+						<div class="hs-cell hs-fin-turno"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+					</div>
+					<div class="hs-row">
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+					</div>
+					<div class="hs-row">
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+						<div class="hs-cell"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+  <!-- Libs -->
+  <script src="vendor/jquery/dist/jquery.min.js"></script>
+  <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="vendor/underscore/underscore-min.js"></script>
+  <script src="vendor/backbone/backbone-min.js"></script>
+  <script src="vendor/swig.min.js"></script>
+  <script src="js/get-template.js"></script>
+  <script src="js/rpt-table.js"></script>
+
+</body>
+</html>
