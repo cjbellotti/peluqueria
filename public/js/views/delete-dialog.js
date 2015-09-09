@@ -27,7 +27,7 @@ App.Views.DeleteDialog = Backbone.View.extend({
 	    this.$el.addClass('modal');
 	    this.$el.addClass('fade');
 	    this.$el.attr('aria-hidden', 'true');
-	    this.$el.css('z-index', '1060');
+	    this.$el.css('z-index', '2000');
 
 	    this.$el.html(this.template(this.data));
 

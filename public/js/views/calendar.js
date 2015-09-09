@@ -69,9 +69,11 @@ App.Views.Calendar = Backbone.View.extend({
 				var fin = scope.$el.find('#fin').val().replace(/(\d{2})(\d{2})/g, '$1:$2');
 				var cliente = scope.$el.find('#cliente').val();
 				var profesional = scope.$el.find('#profesional').val();
-				var importe = scope.$el.find('#importe').val();
-				var pago = scope.$el.find('#pago').val();
+				var importe = scope.$el.find('#importe').val() || 0;
+				var pago = scope.$el.find('#pago').val() || 0;
 				var descripcion = scope.$el.find('#descripcion').val();
+				if (descripcion.length = 0)
+					descripcion = ' ';
 
 				if (turno) {
 

@@ -8,7 +8,8 @@ App.Views.Turno = Backbone.View.extend({
 	},
 
 	events : {
-		"click #ok" : "ok"
+		"click #ok" : "ok",
+		"click #eliminar" : "eliminar"
 	},
 
 	ok : function () {
@@ -16,6 +17,31 @@ App.Views.Turno = Backbone.View.extend({
 		if (this.onok)
 			this.onok(this.model, this);
 		this.$el.modal('hide');
+
+	},
+
+	eliminar : function (e) {
+
+		var self = this;
+
+	    var view = new App.Views.DeleteDialog({
+
+	      titulo : 'Eliminar Turno',
+	      texto : '¿Desea eliminar este turno?',
+	      onok : function () {
+
+	        self.model.destroy();
+	        self.$el.modal('hide');
+	        $('.mc-date').trigger('change');
+
+	      }
+
+	    });
+
+	    $('#modals').append(view.el);
+	    view.render();
+	    view.$el.modal('show');
+
 
 	},
 
@@ -105,6 +131,9 @@ App.Views.Turno = Backbone.View.extend({
 							self.$el.find('#fin').val(turno.HORA_FIN);
 
 						}
+
+						if (!turno.ID)
+							self.$el.find('#eliminar').prop('disabled', 'true');
 
 	    			}
 

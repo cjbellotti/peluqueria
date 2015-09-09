@@ -2,17 +2,25 @@ App.Router = Backbone.Router.extend({
 
   routes : {
 
-    '' : 'main',
-    'login' : 'login',
+    'main' : 'main',
+    '' : 'login',
     'Customers' : 'customersList'
 
   },
 
   main : function () {
 
-    var view = new App.Views.Main();
-    $('#main').html(view.el);
-    view.render();
+    if (window.session) {
+
+      var view = new App.Views.Main();
+      $('#main').html(view.el);
+      view.render();
+
+    } else {
+
+      window.location = '/';
+      
+    }
 
   },
 
@@ -34,9 +42,17 @@ App.Router = Backbone.Router.extend({
 
   login : function () {
 
-    var view = new App.Views.Login();
-    $('#main').html(view.el);
-    view.render();
+    if (window.session) {
+
+      window.location = '/#main';
+
+    } else {
+
+      var view = new App.Views.Login();
+      $('#main').html(view.el);
+      view.render();
+
+    }
 
   }
 

@@ -18,6 +18,13 @@ App.Views.Main = Backbone.View.extend({
     e.stopPropagation();
     var url = e.target.href;
     var viewName = url.substring(url.indexOf('#') + 1);
+
+    this.execute(viewName);
+
+  },
+
+  execute : function (viewName) {
+
     var view = new App.Views[viewName]();
 
     this.$el.find('.content').html(view.el);
@@ -37,10 +44,10 @@ App.Views.Main = Backbone.View.extend({
           title : 'Profesionales',
           url : 'Profesionals'
         },
-        {
-          title : 'Trabajos',
-          url : 'Tasks'
-        },
+        // {
+        //   title : 'Trabajos',
+        //   url : 'Tasks'
+        // },
         {
           title : 'Turnos',
           url : 'Turnos'
@@ -49,6 +56,7 @@ App.Views.Main = Backbone.View.extend({
 
     };
     this.$el.html(this.template(data));
+    this.execute(data.applications[0].url);
 
   }
 
