@@ -43,7 +43,7 @@ App.Views.Main = Backbone.View.extend({
         },
         {
           title : 'Turnos',
-          url : 'Turns'
+          url : 'Turnos'
         }
       ]
 

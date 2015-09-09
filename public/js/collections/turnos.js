@@ -52,9 +52,9 @@ App.Collections.Turnos = Backbone.Collection.extend({
 
 	},
 
-	fetchByFecha : function (fecha) {
+	fetchByFecha : function (fecha, callback) {
 
-		var url = '/turnos-by-profesional/' + fecha;
+		var url = '/turnos-by-fecha/' + fecha;
 		var self = this;
 		$.get(url, function(data) {
 
@@ -63,6 +63,9 @@ App.Collections.Turnos = Backbone.Collection.extend({
 				self.add(turno);
 
 			});
+
+			if(callback)
+				callback();
 
 		});
 

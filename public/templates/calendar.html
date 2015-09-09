@@ -1,6 +1,6 @@
 		<div class="my-calendar">
 			<div class="mc-profesionales">
-				<div><input type="date" class="mc-date"></div>
+				<div><input type="date" class="mc-date" value="{{fecha | date('Y-m-d')}}"></div>
 				{% for profesional in profesionales %}
 					<div>{{ profesional.NOMBRE }}</div>
 				{% endfor %}
@@ -15,7 +15,7 @@
 					{% for profesional in profesionales %}
 					<div class="hs-row">
 						{% for columna in columnas %}
-						<div class="hs-cell"></div>
+						<div class="hs-cell turno" hs="{{ columna.header | replace("(\d+)\:(\d+)", "$1$2")}}" id-profesional="{{ profesional.ID }}"></div>
 						{% endfor %}
 					</div>
 					{% endfor %}

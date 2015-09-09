@@ -29,7 +29,7 @@
 
 	.mc-turnos {
 
-		width : 80.8%;
+		width : 80%;
 		overflow : hidden;
 		overflow-x : scroll;
 		display : inline-block;
@@ -67,7 +67,7 @@
 
 	.hs-content {
 
-		width : 2204px;
+		width : 2500px;
 	}
 
 	.hs-ini-turno {

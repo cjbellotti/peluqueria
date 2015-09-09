@@ -1,0 +1,82 @@
+<div class="modal-dialog" style="width: 70%">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3>Turno</h3>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-6">
+                <label for="fecha">Fecha</label>
+                <input type="date" class="form-control" id="fecha" name="fecha" value="{{ datos.FECHA }}">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label for="inicio">Inicio</label>
+                <select id="inicio" name="inicio" class="form-control">
+                  {% for hh in hhs %}
+                    <option value="{{ hh | replace("(\d+)\:(\d+)", "$1$2") }}">{{ hh }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="fin">Fin</label>
+                <select id="fin" name="fin" class="form-control">
+                  {% for hh in hhs %}
+                    <option value="{{ hh | replace("(\d+)\:(\d+)", "$1$2") }}">{{ hh }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+            <label for="profesional">Profesional</label>
+            <select id="profesional" name="profesional" class="form-control">
+              {% for profesional in profesionales %}
+                <option value="{{ profesional.ID }}">{{  profesional.NOMBRE }}</option>
+              {% endfor %}
+            </select>
+            <div class="row">
+              <div class="col-md-10">
+                <label for="cliente">Cliente</label>
+                <select id="cliente" name="cliente" class="form-control">
+                  {% for cliente in clientes %}
+                    <option value="{{ cliente.ID }}">{{  cliente.NOMBRE }} {{ cliente.APELLIDO }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="col-md-2" style="padding-top : 23px">
+                <button id="cliente-nuevo" class="btn btn-success glyphicon glyphicon-plus"></button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label for="importe">Importe</label>
+                <input type="number" name="importe" id="importe" class="form-control" value="{{ datos.IMPORTE }}">
+              </div>
+              <div class="col-md-6">
+                <label for="pago">Pago</label>
+                <input type="number" name="pago" id="pago" class="form-control" value="{{ datos.PAGO }}">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+            <label for="descripcion">Descripcion</label>
+            <textarea name="descripcion" id="descripcion" class="form-control" style="height: 33vh">{{ datos.DESCRIPCION }}</textarea>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <div class="row">
+        <div class="col-md-6 alg-left">
+        </div>
+        <div class="col-md-6">
+          <button id="ok" class="btn btn-success glyphicon glyphicon-ok"></button>
+          <button class="btn btn-danger glyphicon glyphicon-remove" data-dismiss="modal" ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
