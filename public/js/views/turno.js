@@ -9,7 +9,8 @@ App.Views.Turno = Backbone.View.extend({
 
 	events : {
 		"click #ok" : "ok",
-		"click #eliminar" : "eliminar"
+		"click #eliminar" : "eliminar",
+		"click #cliente-nuevo" : "clienteNuevo"
 	},
 
 	ok : function () {
@@ -45,6 +46,39 @@ App.Views.Turno = Backbone.View.extend({
 
 	},
 
+	clienteNuevo : function () {
+	
+		var self = this;
+		var view = new App.Views.Customers({
+		  callback : function (model) {
+			var clientesCombo = self.$el.find('#cliente');
+			clientesCombo.html('');
+			var clientes = new App.Collections.Clientes();
+			clientes.fetch({
+				success : function (data) {
+					
+					var lista = data.toJSON();
+					for (var index in lista) {
+						var cliente = lista[index];
+						clientesCombo.append('<option value="' + cliente.ID + '">' + cliente.NOMBRE + ' ' + cliente.APELLIDO + '</option>');
+					}
+					
+				}
+				
+			});
+			
+		  }
+		});
+
+		$('#modals').append(view.el);
+		view.renderForm();
+		view.$el.modal({
+		   backdrop : 'static',
+		   keyboard : false
+		});
+
+	},
+	
 	render : function (turno) {
 
 	    var self = this;
@@ -52,7 +86,7 @@ App.Views.Turno = Backbone.View.extend({
 	    this.$el.addClass('modal');
 	    this.$el.addClass('fade');
 	    this.$el.attr('aria-hidden', 'true');
-	    this.$el.css('z-index', '1061');
+	    this.$el.css('z-index', '1050');
 
 	    var profesionales = new App.Collections.Profesionales();
 	    profesionales.fetch({

@@ -18,7 +18,8 @@ App.Views.Customers = Backbone.View.extend({
     "click #ver" : "ver",
     "click #modificar" : "modificar",
     "click #eliminar" : "eliminar",
-    "click #ok" : "guardar"
+    "click #ok" : "guardar",
+	"click #crear-turno" : "crearTurno"
   },
 
   find : function (e) {
@@ -181,6 +182,63 @@ App.Views.Customers = Backbone.View.extend({
 
   },
 
+  crearTurno : function (e) {
+	  
+	var self = this;
+
+	var fecha = new Date();
+	var inicio = '0900';
+	
+	var turno = {};
+	turno.FECHA = fecha.toJSON().substring(0,10);
+	turno.HORA_INI = '1000';
+	turno.HORA_FIN = '1000';
+	turno.ID_CLIENTE = this.model.get('ID');
+
+
+	var view = new App.Views.Turno({
+
+		onok : function (turno, scope) {
+
+			var model = new App.Models.Turno();
+			var fecha = scope.$el.find('#fecha').val();
+			var inicio = scope.$el.find('#inicio').val().replace(/(\d{2})(\d{2})/g, '$1:$2');
+			var fin = scope.$el.find('#fin').val().replace(/(\d{2})(\d{2})/g, '$1:$2');
+			var cliente = scope.$el.find('#cliente').val();
+			var profesional = scope.$el.find('#profesional').val();
+			var importe = scope.$el.find('#importe').val() || 0;
+			var pago = scope.$el.find('#pago').val() || 0;
+			var descripcion = scope.$el.find('#descripcion').val();
+			if (descripcion.length = 0)
+				descripcion = ' ';
+
+			if (turno) {
+
+				model.set('ID', turno.get('ID'));
+
+			}
+
+			model.set('FECHA', fecha);
+			model.set('HORA_INI', inicio);
+			model.set('HORA_FIN', fin);
+			model.set('ID_CLIENTE', cliente);
+			model.set('ID_PROFESIONAL', profesional);
+			model.set('IMPORTE', importe);
+			model.set('PAGO', pago);
+			model.set('DESCRIPCION', descripcion);
+
+			model.save();
+
+		}
+
+	});
+
+	$('#modals').append(view.el);
+	view.render(turno);
+	view.$el.modal('show');
+
+  },
+  
   render : function () {
 
     var self = this;

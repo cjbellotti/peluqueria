@@ -12,14 +12,29 @@ app.post('/login', function (req, res) {
 		if(err)
 			data = err;
 		else
-			if (rows.length > 0)
+			if (rows.length > 0) {
+
 				data.resultado = 'OK';
-			else
+				req.session.name = rows[0].USER_ID;
+
+			} else
 				data.resultado = 'ERROR';
 
 		res.json(data)
 			.end();
 
+	});
+
+});
+
+app.get('/logout', function (req, res) {
+
+	console.log(req.session);	
+	req.session.regenerate(function (err) {
+
+		res.json({})
+			.end();
+	
 	});
 
 });

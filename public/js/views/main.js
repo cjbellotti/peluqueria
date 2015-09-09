@@ -51,7 +51,11 @@ App.Views.Main = Backbone.View.extend({
         {
           title : 'Turnos',
           url : 'Turnos'
-        }
+        },
+		{
+		  title : 'Reporte',
+		  url : 'Reporte'
+		}
       ]
 
     };

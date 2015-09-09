@@ -1,4 +1,4 @@
-use peluqueria;clientes
+use peluqueria;
 
 create table clientes (
 		ID INT(5) NOT NULL AUTO_INCREMENT,

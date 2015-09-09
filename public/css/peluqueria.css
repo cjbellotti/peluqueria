@@ -93,3 +93,21 @@ body {
   display : none;
   
 }
+
+.reporte-tabla {
+	overflow : hidden;
+	overflow-y : scroll;
+	height : 65vh;
+}
+
+.reporte-tabla::-webkit-scrollbar {
+	width: 10px;
+	height : 10px;
+	background : #7094B8;
+	border-radius: 3px;
+}
+
+.reporte-tabla::-webkit-scrollbar-thumb {
+	background: #1C3753;
+	border-radius: 3px;
+}
