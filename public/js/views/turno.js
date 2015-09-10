@@ -86,7 +86,7 @@ App.Views.Turno = Backbone.View.extend({
 	    this.$el.addClass('modal');
 	    this.$el.addClass('fade');
 	    this.$el.attr('aria-hidden', 'true');
-	    this.$el.css('z-index', '1050');
+	    this.$el.css('z-index', ++window.zorder);
 
 	    var profesionales = new App.Collections.Profesionales();
 	    profesionales.fetch({
@@ -103,6 +103,10 @@ App.Views.Turno = Backbone.View.extend({
 					    	profesionales : profesionales.toJSON(),
 					    	clientes : clientes.toJSON(),
 					    	hhs : [
+								'09:00',
+								'09:15',
+								'09:30',
+								'09:45',
 								'10:00',
 								'10:15',
 								'10:30',
@@ -178,6 +182,7 @@ App.Views.Turno = Backbone.View.extend({
 
 	    this.$el.on('hidden.bs.modal', function () {
 	        self.$el.remove();
+	        window.zorder--;
 	    });
 
 	}

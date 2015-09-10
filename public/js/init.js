@@ -5,3 +5,5 @@ window.App.Views = {};
 
 window.colecciones = {};
 
+window.zorder = 1050;
+

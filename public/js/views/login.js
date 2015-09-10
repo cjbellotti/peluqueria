@@ -24,9 +24,23 @@ App.Views.Login = Backbone.View.extend({
 
   		if (data.resultado == 'OK') {
 
-  			window.location.href = '/#main';
 
   			window.session = {};
+        window.session.usuario = usuario;
+        $.get('/permisos-by-user/' + usuario, function (data) {
+
+
+          window.session.permisos = [];
+
+          for (var index in data)
+            window.session.permisos.push({
+              title : data[index].TITLE,
+              url : data[index].URL
+            });
+
+          window.location.href = '/#main';
+
+        });
 
   		} else {
 

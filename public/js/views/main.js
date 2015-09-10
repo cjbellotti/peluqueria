@@ -35,29 +35,29 @@ App.Views.Main = Backbone.View.extend({
   render : function () {
 
     var data = { 
-      applications : [
-        {
-          title : 'Clientes',
-          url : 'Customers'
-        },
-        {
-          title : 'Profesionales',
-          url : 'Profesionals'
-        },
-        // {
-        //   title : 'Trabajos',
-        //   url : 'Tasks'
-        // },
-        {
-          title : 'Turnos',
-          url : 'Turnos'
-        },
-		{
-		  title : 'Reporte',
-		  url : 'Reporte'
-		}
-      ]
-
+  //     applications : [
+  //       {
+  //         title : 'Clientes',
+  //         url : 'Customers'
+  //       },
+  //       {
+  //         title : 'Profesionales',
+  //         url : 'Profesionals'
+  //       },
+  //       // {
+  //       //   title : 'Trabajos',
+  //       //   url : 'Tasks'
+  //       // },
+  //       {
+  //         title : 'Turnos',
+  //         url : 'Turnos'
+  //       },
+		// {
+		//   title : 'Reporte',
+		//   url : 'Reporte'
+		// }
+  //     ]
+      applications : window.session.permisos
     };
     this.$el.html(this.template(data));
     this.execute(data.applications[0].url);

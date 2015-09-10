@@ -1,1 +1,4 @@
-module.exports = require('../../lib/crud')('profesionales');
+var app = require('../../lib/crud')('profesionales');
+
+
+module.exports = app;

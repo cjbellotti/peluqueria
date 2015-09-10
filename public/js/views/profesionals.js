@@ -253,13 +253,14 @@ App.Views.Profesionals = Backbone.View.extend({
     this.$el.addClass('modal');
     this.$el.addClass('fade');
     this.$el.attr('aria-hidden', 'true');
-    this.$el.css('z-index', '1060');
+    this.$el.css('z-index', ++window.zorder);
 
     this.$el.html(this.formTemplate(data));
 
     var self = this;
     this.$el.on('hidden.bs.modal', function () {
         self.$el.remove();
+        window.zorder--;
     });
 
   }
