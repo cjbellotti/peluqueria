@@ -52,6 +52,12 @@ App.Views.Reporte = Backbone.View.extend({
 		$.get(url, function (turnos) {
 			
 			self.data.turnos = turnos;
+			self.data.total_importe = 0;
+			self.data.total_pago = 0;
+			for (var index in turnos) {
+				self.data.total_importe += turnos[index].IMPORTE;
+				self.data.total_pago += turnos[index].PAGO;
+			}
 			if(callback)
 				callback();
 			

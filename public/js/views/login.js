@@ -24,21 +24,24 @@ App.Views.Login = Backbone.View.extend({
 
   		if (data.resultado == 'OK') {
 
-
   			window.session = {};
         window.session.usuario = usuario;
         $.get('/permisos-by-user/' + usuario, function (data) {
 
+          var session = {};
 
-          window.session.permisos = [];
+          session.usuario = usuario;
+          session.permisos = [];
 
           for (var index in data)
-            window.session.permisos.push({
+            session.permisos.push({
               title : data[index].TITLE,
               url : data[index].URL
             });
 
-          window.location.href = '/#main';
+          window.localStorage.setItem('session', JSON.stringify(session));
+
+          window.location.href = '/#';
 
         });
 

@@ -1,0 +1,6 @@
+- Desloguearse
+- Guardar contraseña en el local storage para poder reloguearse
+- Verificar problema de campos vacios, cuando algun campo no se completa en la pantalla queda mal el query
+- Agregarle algo de color a los cuadros de los turnos
+- Revisar el reporte, cuando se filtra por cliente trae informacion incorrecta.
+- En la pantalla de turnos, cuando se hace click sobre el nombre en el cuadro de turno, como al event handler le llega el element del P no tiene acceso al ID del turno que esta en el DIV.

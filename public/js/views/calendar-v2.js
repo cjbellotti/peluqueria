@@ -12,7 +12,7 @@ App.Views.Calendar = Backbone.View.extend({
 
 		"click .turno" : "turno",
 		"click #ok" : "ok",
-		"change .mc-date" : "cargarTurnos"
+		"change .fecha" : "cargarTurnos"
 	},
 
 	turno : function (e) {
@@ -21,7 +21,7 @@ App.Views.Calendar = Backbone.View.extend({
 		console.log ($(e.target).attr('hs'));
 		console.log ($(e.target).attr('id-profesional'));
 
-		var fecha = this.$el.find('.mc-date').val();
+		var fecha = this.$el.find('.fecha').val();
 		var inicio = $(e.target).attr('hs');
 		var profesional = $(e.target).attr('id-profesional');
 		var id_turno = $(e.target).attr('id-turno');
@@ -123,7 +123,7 @@ App.Views.Calendar = Backbone.View.extend({
 		console.log('Cargar Turnos!!!');
 		var self = this;
 		var turnos = new App.Collections.Turnos();
-		var fecha = this.$el.find('.mc-date').val();
+		var fecha = this.$el.find('.fecha').val();
 		turnos.fetchByFecha(fecha, function () {
 
 			self.config.data.fecha = fecha;
@@ -143,6 +143,13 @@ App.Views.Calendar = Backbone.View.extend({
 	render : function () {
 
 		this.$el.html(this.template(this.config.data));
+		var header = this.$el.find('.mc-profesionales');
+		var ancho = header.width() - 8 - 45;
+		var cantProfesionales = this.$el.find('.cell-header').length - 1;
+		var anchoHeader = ancho / cantProfesionales;
+		this.$el.find('.profesional-header').width(anchoHeader);
+		this.$el.find('.turno').width(anchoHeader);
+		console.log(anchoHeader);
 
 	},
 

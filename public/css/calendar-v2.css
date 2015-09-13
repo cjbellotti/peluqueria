@@ -1,0 +1,135 @@
+	.my-calendar  {
+		margin : 0 0 0 0;
+		padding : 0 0 0 0;
+	}
+
+	.mc-date {
+		border-top: 1px solid #7094B8;
+		border-left: 1px solid #7094B8;
+		border-right: 1px solid #7094B8;
+		border-top-left-radius:  5px;		
+		border-top-right-radius:  5px;		
+		padding : 3px;
+		width : 170px;
+	}
+
+	.mc-body {
+		border : 1px solid #7094B8;
+		border-top-right-radius: 5px;
+		border-bottom-left-radius: 5px;
+		border-bottom-right-radius: 5px;
+		height : 76vh;
+	}
+
+	.mc-profesionales {
+		width : 100%;
+		display : inline-block;
+		vertical-align: top;
+		margin : -2px -2px 0 0;
+		padding-top : 3px;
+	}
+
+	.mc-profesionales > div{
+	}
+
+	.cell {
+
+		height : 30px;
+		width : 200px;
+		display : inline-block;
+		margin : -1px -5px 1px 0;
+		vertical-align: top;
+
+	}
+
+	.cell-header {
+
+		border: 1px solid #5C85D6;
+		text-align: center;
+		padding-top : 4px;
+
+	}
+
+	.cell-header:first-child {
+
+		width : 45px;
+		text-align: center;
+
+	} 
+
+	.mc-turnos {
+
+		width : 99.8%;
+		height : 94%;
+		overflow : hidden;
+		overflow-y : scroll;
+		display : inline-block;
+
+	}
+
+	.mc-turnos::-webkit-scrollbar {
+		width: 5px;
+		height : 10px;
+		background : #7094B8;
+		border-radius: 3px;
+	}
+
+	.mc-turnos::-webkit-scrollbar-thumb {
+		background: #1C3753;
+		border-radius: 3px;
+	}
+
+	.mc-turnos-content {
+		width : 2500px;
+	}
+
+	.cell-mini {
+		height : 30px;
+		width: 45px;
+		margin : 0px -5px 0 0;
+	}
+
+	.hs-cell {
+
+		display : inline-block;
+		border: 1px solid #C2D1E0;
+		vertical-align: top;
+
+	}
+
+	.hs-row {
+
+	}
+
+	.hs-cell-header {
+		background : #A9BFE9;
+	}
+	.hs-cell > p {
+		width : 200px;
+	}
+
+	.hs-content {
+
+		width : 2500px;
+	}
+
+	.hs-ini-turno {
+		border-top : 1px solid black;
+		border-left : 1px solid black;
+		border-right : 2px solid black;
+		border-bottom : hidden;
+	}
+
+	.hs-body-turno {
+		border-top : 0px;
+		border-bottom : 0px;
+		border-left : 1px solid black;
+		border-right : 2px solid black;
+	}
+
+	.hs-fin-turno {
+		border-left : 1px solid black;
+		border-right : 2px solid black;
+		border-top : hidden;
+		border-bottom : 1px solid black;
+	}
