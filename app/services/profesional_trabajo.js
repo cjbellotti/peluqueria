@@ -1,1 +1,1 @@
-module.exports = require('../../lib/crud')('profesional_trabajo');
+module.exports = require('../../lib/crud')(require('../models/profesional_trabajo'));

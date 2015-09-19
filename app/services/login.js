@@ -1,29 +1,28 @@
 var app = require('express')();
 var db = require('../../lib/db');
+var a = require('../../lib/crud')(require('../models/usuarios'));
 
 app.post('/login', function (req, res) {
 
-	var query = "SELECT * FROM USUARIOS WHERE USER_ID = '" + req.body.usuario + "' AND USER_PASSWORD =  '" + req.body.clave + "'";
+	db.models.USUARIOS.find({ where : { USER_ID : req.body.usuario, USER_PASSWORD : req.body.clave }})
+		.then(function (data) {
 
-	db.query(query, function (err, rows) {
+			var response = {};
+			if (data) {
 
-		var data = {};
+				response.resultado = 'OK';
+				req.session.name = data.USER_ID;
 
-		if(err)
-			data = err;
-		else
-			if (rows.length > 0) {
+			} else {
 
-				data.resultado = 'OK';
-				req.session.name = rows[0].USER_ID;
+				response.resultado = 'ERROR';
 
-			} else
-				data.resultado = 'ERROR';
+			}
 
-		res.json(data)
-			.end();
+			res.json(response)
+				.end();
 
-	});
+		});
 
 });
 

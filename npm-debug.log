@@ -1,0 +1,75 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   '--save',
+1 verbose cli   'sequealize' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.36
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 warn package.json peluqueria@1.0.0 No repository field.
+6 warn package.json peluqueria@1.0.0 No README data
+7 verbose readDependencies using package.json deps
+8 verbose cache add [ 'sequealize', null ]
+9 verbose cache add name=undefined spec="sequealize" args=["sequealize",null]
+10 verbose parsed url { protocol: null,
+10 verbose parsed url   slashes: null,
+10 verbose parsed url   auth: null,
+10 verbose parsed url   host: null,
+10 verbose parsed url   port: null,
+10 verbose parsed url   hostname: null,
+10 verbose parsed url   hash: null,
+10 verbose parsed url   search: null,
+10 verbose parsed url   query: null,
+10 verbose parsed url   pathname: 'sequealize',
+10 verbose parsed url   path: 'sequealize',
+10 verbose parsed url   href: 'sequealize' }
+11 silly lockFile 50953e2a-sequealize sequealize
+12 verbose lock sequealize C:\Users\Javier\AppData\Roaming\npm-cache\50953e2a-sequealize.lock
+13 silly lockFile 50953e2a-sequealize sequealize
+14 silly lockFile 50953e2a-sequealize sequealize
+15 verbose addNamed [ 'sequealize', '' ]
+16 verbose addNamed [ null, '*' ]
+17 silly lockFile a6587a1d-sequealize sequealize@
+18 verbose lock sequealize@ C:\Users\Javier\AppData\Roaming\npm-cache\a6587a1d-sequealize.lock
+19 silly addNameRange { name: 'sequealize', range: '*', hasData: false }
+20 verbose request where is /sequealize
+21 verbose request registry https://registry.npmjs.org/
+22 verbose request id df3344052e0def89
+23 verbose url raw /sequealize
+24 verbose url resolving [ 'https://registry.npmjs.org/', './sequealize' ]
+25 verbose url resolved https://registry.npmjs.org/sequealize
+26 verbose request where is https://registry.npmjs.org/sequealize
+27 info trying registry request attempt 1 at 18:40:56
+28 http GET https://registry.npmjs.org/sequealize
+29 http 404 https://registry.npmjs.org/sequealize
+30 silly registry.get cb [ 404,
+30 silly registry.get   { 'content-type': 'application/json',
+30 silly registry.get     'cache-control': 'max-age=0',
+30 silly registry.get     'content-length': '2',
+30 silly registry.get     'accept-ranges': 'bytes',
+30 silly registry.get     date: 'Sat, 19 Sep 2015 21:41:05 GMT',
+30 silly registry.get     via: '1.1 varnish',
+30 silly registry.get     age: '0',
+30 silly registry.get     connection: 'keep-alive',
+30 silly registry.get     'x-served-by': 'cache-jfk1033-JFK',
+30 silly registry.get     'x-cache': 'MISS',
+30 silly registry.get     'x-cache-hits': '0',
+30 silly registry.get     'x-timer': 'S1442698865.648964,VS0,VE85' } ]
+31 silly lockFile a6587a1d-sequealize sequealize@
+32 silly lockFile a6587a1d-sequealize sequealize@
+33 error 404 Not Found
+33 error 404
+33 error 404 'sequealize' is not in the npm registry.
+33 error 404 You should bug the author to publish it
+33 error 404 It was specified as a dependency of 'peluqueria'
+33 error 404
+33 error 404 Note that you can also install from a
+33 error 404 tarball, folder, or http url, or git url.
+34 error System Windows_NT 6.1.7600
+35 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "--save" "sequealize"
+36 error cwd C:\Users\Javier\Proyectos\peluqueria2\peluqueria
+37 error node -v v0.10.36
+38 error npm -v 1.4.28
+39 error code E404
+40 verbose exit [ 1, true ]

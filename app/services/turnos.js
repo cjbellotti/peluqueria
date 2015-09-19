@@ -1,4 +1,4 @@
-var app = require('../../lib/crud')('turnos');
+var app = require('../../lib/crud')(require('../models/turnos'));
 var db = require('../../lib/db');
 
 app.get('/turnos-by-cliente/:id_cliente', function (req, res) {

@@ -1,1 +1,1 @@
-module.exports = require('../../lib/crud')('clientes');
+module.exports = require('../../lib/crud')(require('../models/clientes'));
