@@ -1,6 +1,6 @@
 App.Collections.Profesionales = Backbone.Collection.extend({
 
-	url : '/profesionales',
+	url : '/PROFESIONALES',
 	model : App.Models.Profesional
 
 });

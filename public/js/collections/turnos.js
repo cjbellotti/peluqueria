@@ -4,7 +4,7 @@ App.Collections.Turnos = Backbone.Collection.extend({
 	fetch : function () {
 
 		var self = this;
-		$.get('/turnos', function(data) {
+		$.get('/TURNOS', function(data) {
 
 			_.each(data, function (turno) {
 

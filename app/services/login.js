@@ -29,12 +29,9 @@ app.post('/login', function (req, res) {
 app.get('/logout', function (req, res) {
 
 	console.log(req.session);	
-	req.session.regenerate(function (err) {
-
-		res.json({})
-			.end();
+	delete req.session['name'];
 	
-	});
+	res.redirect('/');
 
 });
 

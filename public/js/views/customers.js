@@ -264,6 +264,7 @@ App.Views.Customers = Backbone.View.extend({
     this.$el.attr('aria-hidden', 'true');
     this.$el.css('z-index', ++window.zorder);
 
+    this.model = new App.Models.Cliente(data);
     this.$el.html(this.formTemplate(data));
 
     if (!data)

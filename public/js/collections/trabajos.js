@@ -1,6 +1,6 @@
 App.Collections.Trabajos = Backbone.Collection.extend({
 
-	url : '/trabajos',
+	url : '/TRABAJOS',
 	model : App.Models.Trabajo
 
 });

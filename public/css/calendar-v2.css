@@ -133,3 +133,35 @@
 		border-top : hidden;
 		border-bottom : 1px solid black;
 	}
+
+	.cell-1 {
+		background: #EB99FF;
+	}
+
+	.cell-2 {
+		background: #6685E0;
+	}
+
+	.cell-3 {
+		background: #A3A3C2;
+	}
+
+	.cell-4 {
+		background: #66C266;
+	}
+
+	.cell-5 {
+		background: #FFFFB2;
+	}
+
+	.cell-6 {
+		background: #B280E6;
+	}
+
+	.cell-7 {
+		background: #ADD6FF;
+	}
+
+	.cell-8 {
+		background: #EB99C2;
+	}

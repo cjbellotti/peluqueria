@@ -5,7 +5,7 @@ app.get('/permisos-by-user/:user', function (req, res) {
 
 	if (req.session.name == req.params.user) {
 
-		db.PERMISOS.find({ where : { USER_ID : req.params.user}})
+		db.models.PERMISOS.findAll({ where : { USER_ID : req.params.user}})
 			.then(function (data) {
 
 				var response = {};

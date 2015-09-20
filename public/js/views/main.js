@@ -8,7 +8,8 @@ App.Views.Main = Backbone.View.extend({
 
   events : {
 
-    "click .application" : "runApplication"
+    "click .application" : "runApplication",
+    "click #logout" : "logout"
 
   },
 
@@ -20,6 +21,21 @@ App.Views.Main = Backbone.View.extend({
     var viewName = url.substring(url.indexOf('#') + 1);
 
     this.execute(viewName);
+
+  },
+
+  logout : function (e) {
+
+    e.preventDefault();
+    e.stopPropagation();
+    window.localStorage.removeItem('session');
+    $.ajax({
+      method : 'GET',
+      url : '/logout',
+      success : function () {
+        window.location.href = '/';
+      }
+    });
 
   },
 

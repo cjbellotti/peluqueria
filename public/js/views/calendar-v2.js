@@ -149,7 +149,12 @@ App.Views.Calendar = Backbone.View.extend({
 		var anchoHeader = ancho / cantProfesionales;
 		this.$el.find('.profesional-header').width(anchoHeader);
 		this.$el.find('.turno').width(anchoHeader);
-		console.log(anchoHeader);
+
+		this.colores = {};
+
+		var color_index = 0;
+		for (var profesional in this.config.data.profesionales) 
+			this.colores[profesional.ID] = 'cell-' + ++color_index;
 
 	},
 
@@ -166,6 +171,14 @@ App.Views.Calendar = Backbone.View.extend({
 		this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') == fin }).attr('id-turno', turno.ID);
 		this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') > inicio && $(this).attr('hs') < fin }).addClass('hs-body-turno');
 		this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') > inicio && $(this).attr('hs') < fin }).attr('id-turno', turno.ID);
+
+		this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') == inicio }).addClass(this.colores['turno.ID_PROFESIONAL']);
+		this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') == inicio }).addClass(this.colores['turno.ID_PROFESIONAL']);
+		this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') == inicio }).addClass(this.colores['turno.ID_PROFESIONAL']);
+		this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') == fin }).addClass(this.colores['turno.ID_PROFESIONAL']);
+		this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') == fin }).addClass(this.colores['turno.ID_PROFESIONAL']);
+		this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') > inicio && $(this).attr('hs') < fin }).addClass(this.colores['turno.ID_PROFESIONAL']);
+		this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') > inicio && $(this).attr('hs') < fin }).addClass(this.colores['turno.ID_PROFESIONAL']);
 
 	}
 

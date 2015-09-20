@@ -8,11 +8,10 @@ app.get('/turnos-by-cliente/:id_cliente', function (req, res) {
 				"  FROM TURNOS AS T, CLIENTES AS C, PROFESIONALES AS P WHERE T.ID_CLIENTE = " + req.params.id_cliente + 
 				" AND C.ID = T.ID_CLIENTE AND P.ID = T.ID_PROFESIONAL"
 
-	db.query(query, function (err, rows) {
+	db.query(query, { type : db.QueryTypes.SELECT })
+		.then(function (rows) {
 
-		var data = err || rows;
-		if (!err && req.params.id)
-			data = data[0];
+		var data = rows || {};
 		res.json(data)
 			.end();
 
@@ -27,11 +26,10 @@ app.get('/turnos-by-profesional/:id_profesional', function (req, res) {
 				"  FROM TURNOS AS T, CLIENTES AS C, PROFESIONALES AS P WHERE T.ID_PROFESIONAL = " + req.params.id_profesional + 
 				" AND C.ID = T.ID_CLIENTE AND P.ID = T.ID_PROFESIONAL"
 
-	db.query(query, function (err, rows) {
+	db.query(query, { type : db.QueryTypes.SELECT })
+		.then(function (rows) {
 
-		var data = err || rows;
-		if (!err && req.params.id)
-			data = data[0];
+		var data = rows || {};
 		res.json(data)
 			.end();
 
@@ -54,11 +52,10 @@ app.get('/turnos-by-fecha/:fecha/:id_cliente?/:id_profesional?', function (req, 
 
 
 	console.log(query);
-	db.query(query, function (err, rows) {
+	db.query(query, { type : db.QueryTypes.SELECT })
+		.then(function (rows) {
 
-		var data = err || rows;
-		if (!err && req.params.id)
-			data = data[0];
+		var data = rows || {};
 		res.json(data)
 			.end();
 
@@ -84,11 +81,10 @@ app.get('/turnos-reporte/:fechad/:fechah/:id_profesional?/:id_cliente?', functio
 	query += " ORDER BY FECHA, PROFESIONAL, CLIENTE";
 
 	console.log(query);
-	db.query(query, function (err, rows) {
+	db.query(query, { type : db.QueryTypes.SELECT })
+		.then(function (rows) {
 
-		var data = err || rows;
-		if (!err && req.params.id)
-			data = data[0];
+		var data = rows || {};
 		res.json(data)
 			.end();
 
@@ -111,11 +107,10 @@ app.get('/turno-disponible/:fecha/:inicio/:fin', function (req, res) {
 
 
 	console.log(query);
-	db.query(query, function (err, rows) {
+	db.query(query, { type : db.QueryTypes.SELECT })
+		.then(function (rows) {
 
 		var data = err || rows;
-		if (!err && req.params.id)
-			data = data[0];
 		res.json(data)
 			.end();
 

@@ -1,6 +1,6 @@
 App.Collections.Clientes = Backbone.Collection.extend({
 
-	url : '/clientes',
+	url : '/CLIENTES',
 	model : App.Models.Cliente
 
 });
