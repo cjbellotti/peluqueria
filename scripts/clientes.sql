@@ -1,6 +1,6 @@
 use peluqueria;
 
-create table clientes (
+create table CLIENTES (
 		ID INT(5) NOT NULL AUTO_INCREMENT,
 		NOMBRE VARCHAR(30),
 		APELLIDO VARCHAR(30),

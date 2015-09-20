@@ -15,12 +15,30 @@ App.Views.Turno = Backbone.View.extend({
 
 	ok : function () {
 
-		if (this.onok)
-			this.onok(this.model, this);
-		this.$el.modal('hide');
+		if (this.validar()) {
+
+			if (this.onok)
+				this.onok(this.model, this);
+			this.$el.modal('hide');
+
+		}
 
 	},
 
+	validar : function () {
+		
+		var validacion = true;
+		var inicio = this.$el.find('#inicio').val();
+		var fin = this.$el.find('#fin').val();
+		if (inicio == fin) {
+			validacion = false;
+			this.$el.find('#fin').focus();
+		}
+		
+		return validacion;
+		
+	},
+	
 	eliminar : function (e) {
 
 		var self = this;

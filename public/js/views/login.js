@@ -8,7 +8,8 @@ App.Views.Login = Backbone.View.extend({
   
   events : {
 
-  	"click #login" : "login"
+  	"click #login" : "login",
+  	"keyup #pass" : "enterLogin"
 
   },
 
@@ -57,6 +58,11 @@ App.Views.Login = Backbone.View.extend({
 
   },
 
+  enterLogin : function (e) { 
+    if (e.keyCode == 13)
+      this.login();
+  },
+  
   render : function () {
 
     this.$el.html(this.template());
