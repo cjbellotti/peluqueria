@@ -266,7 +266,8 @@ App.Views.Customers = Backbone.View.extend({
 
     this.model = new App.Models.Cliente(data);
     this.$el.html(this.formTemplate(data));
-
+    if (!data)
+      this.$el.find('#fecha-nacimiento').attr('value', (new Date()).toISOString().substring(0,10));
     if (!data)
       this.$el.find('#crear-turno').attr('disabled', 'true');
   

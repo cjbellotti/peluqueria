@@ -4,6 +4,7 @@ var a = require('../../lib/crud')(require('../models/usuarios'));
 
 app.post('/login', function (req, res) {
 
+	if (!req.session.name) {
 	db.models.USUARIOS.find({ where : { USER_ID : req.body.usuario, USER_PASSWORD : req.body.clave }})
 		.then(function (data) {
 
@@ -23,6 +24,15 @@ app.post('/login', function (req, res) {
 				.end();
 
 		});
+	} else {
+
+		var response = {
+			resultado : 'OK',
+		}
+		res.json(response)
+			.end();
+
+	}
 
 });
 

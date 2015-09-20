@@ -50,24 +50,25 @@ App.Views.Main = Backbone.View.extend({
 
   render : function () {
 
-    var session = window.localStorage.getItem('session');
+    var self = this;
+    $.get('/get-permisos', function (data) {
 
-    if (!session) {
+      if (data.accion == 'login') {
 
-      window.location.href = '/#login';
+        window.location.href = '/#login';
 
-    } else { 
+      } else {
 
-      var sessionData = JSON.parse(session);
+        var data = { 
+          applications : data
+        };
 
-      var data = { 
-        applications : sessionData.permisos
-      };
+        self.$el.html(self.template(data));
+        self.execute(data.applications[0].URL);
 
-      this.$el.html(this.template(data));
-      this.execute(data.applications[0].url);
+      }
 
-    }
+    });
 
   }
 
