@@ -155,6 +155,7 @@ App.Views.Customers = Backbone.View.extend({
 
   guardar : function () {
 
+    var self = this;
     if (!this.model)
       this.model = new App.Models.Cliente();
 
@@ -173,12 +174,53 @@ App.Views.Customers = Backbone.View.extend({
     this.model.set('DIRECCION', domicilio);
     this.model.set('FECHA_NACIMIENTO', fecha_nacimiento);
     this.model.set('DESCRIPCION', descripcion);
-    this.model.save();
 
-    if (this.callback)
-      this.callback();
+    $.get('/clientes-by-nombre/' + nombre + '/' + apellido, function (data) {
 
-    this.$el.modal('hide');
+      if (data.length == 0) {
+
+        self.model.save();
+
+        if (self.callback)
+          self.callback();
+
+        self.$el.modal('hide');
+
+      } else {
+
+        var config = {
+          titulo : 'Atencion!!!',
+        }
+
+        config.texto = "Ya existe un cliente con el nombre " + nombre + " " + apellido + " con los siguientes datos: <br/><br/>"
+        for (var field in data[0]) {
+
+          if (field != 'ID')
+            config.texto += field + " : " + ((field == 'FECHA_NACIMIENTO') ? data[0][field].substring(0,10) : data[0][field]) + '<br/>';
+
+        }
+        config.texto += "<br/>Desde guardarlo de todas formas?";
+
+        config.onok = function () {
+          
+          self.model.save();
+
+          if (self.callback)
+            self.callback();
+
+          self.$el.modal('hide');
+
+        }
+
+        var dialog = new App.Views.Dialog(config);
+        $('#modals').append(dialog.el);
+        dialog.render();
+        dialog.$el.find('.modal-body').html(config.texto);
+        dialog.$el.modal('show');
+
+      }
+
+    });
 
   },
 

@@ -30,9 +30,35 @@ App.Views.Turno = Backbone.View.extend({
 		var validacion = true;
 		var inicio = this.$el.find('#inicio').val();
 		var fin = this.$el.find('#fin').val();
+		var config = {
+
+			titulo : 'Error de validacion',
+			onok : function () {
+
+				this.$el.find('#fin').focus();
+
+			}
+
+		};
 		if (inicio == fin) {
+
+			config.texto = 'La hora de inicio y de fin del turno deben ser distintas.';
 			validacion = false;
-			this.$el.find('#fin').focus();
+
+		} else if (inicio > fin) {
+
+			config.texto = 'La hora de fin de turno debe ser mayor a la hora de inicio.';
+			validacion = false;
+
+		}
+
+		if (!validacion) {
+
+			var dialog = new App.Views.Dialog(config);
+			$('#modals').append(dialog.el);
+			dialog.render();
+			dialog.$el.modal('show');
+
 		}
 		
 		return validacion;
