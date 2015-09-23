@@ -202,7 +202,7 @@ App.Views.Customers = Backbone.View.extend({
         config.texto += "<br/>Desde guardarlo de todas formas?";
 
         config.onok = function () {
-          
+
           self.model.save();
 
           if (self.callback)
@@ -265,8 +265,8 @@ App.Views.Customers = Backbone.View.extend({
 			model.set('HORA_FIN', fin);
 			model.set('ID_CLIENTE', cliente);
 			model.set('ID_PROFESIONAL', profesional);
-			model.set('IMPORTE', importe);
-			model.set('PAGO', pago);
+			model.set('IMPORTE', parseFloat(importe));
+			model.set('PAGO', parseFloat(pago));
 			model.set('DESCRIPCION', descripcion);
 
 			model.save();
