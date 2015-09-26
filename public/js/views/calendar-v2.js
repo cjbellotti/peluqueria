@@ -5,6 +5,7 @@ App.Views.Calendar = Backbone.View.extend({
 		this.config = config;
 		this.template = swig.compile(getTemplate('templates/calendar-v2.html'));
 		this.turnoTemplate = swig.compile(getTemplate('templates/turno.html'));
+		this.turnoBox = swig.compile(getTemplate('templates/turno-box.html'));
 
 	},
 
@@ -162,10 +163,17 @@ App.Views.Calendar = Backbone.View.extend({
 
 		var inicio = turno.HORA_INI;
 		var fin = turno.HORA_FIN;
-		var p = $('<p/>');
-		p.html(turno.CLIENTE);
+		var box = $(this.turnoBox(turno));
+		var width = this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') == inicio }).width();
+		var height = this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') == inicio }).height();
+		var cant = this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') > inicio && $(this).attr('hs') < fin }).length + 2;
+		box.width(width);
+		box.height(height * cant);
+		box.attr('id-turno', turno.ID);
+		box.find('*').attr('id-turno', turno.ID);
+
 		this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') == inicio }).attr('id-turno', turno.ID);
-		this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') == inicio }).html(p);
+		this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') == inicio }).html(box);
 		this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') == inicio }).addClass('hs-ini-turno');
 		this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') == fin }).addClass('hs-fin-turno');
 		this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') == fin }).attr('id-turno', turno.ID);
@@ -179,6 +187,8 @@ App.Views.Calendar = Backbone.View.extend({
 		this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') == fin }).addClass(this.colores[turno.ID_PROFESIONAL]);
 		this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') > inicio && $(this).attr('hs') < fin }).addClass(this.colores[turno.ID_PROFESIONAL]);
 		this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') > inicio && $(this).attr('hs') < fin }).addClass(this.colores[turno.ID_PROFESIONAL]);
+
+
 
 	}
 

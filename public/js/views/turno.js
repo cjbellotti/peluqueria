@@ -4,6 +4,7 @@ App.Views.Turno = Backbone.View.extend({
 
 		this.onok = config.onok;
 		this.template = swig.compile(getTemplate('templates/turno.html'));
+		this.templateCierre = swig.compile(getTemplate('templates/cerrar-turno.html'));
 
 	},
 
