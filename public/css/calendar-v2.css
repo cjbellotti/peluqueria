@@ -181,3 +181,6 @@
 	.turno-box > * {
 		margin : 0 0 0 0;
 	}
+	.turno-box > p {
+		font-size: 10px;
+	}

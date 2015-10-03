@@ -1,4 +1,5 @@
-var app = require('../../lib/crud')(require('../models/turnos'));
+var TurnosDef = require('../models/turnos');
+var app = require('../../lib/crud')(TurnosDef);
 var db = require('../../lib/db');
 
 app.get('/turnos-by-cliente/:id_cliente', function (req, res) {
@@ -115,6 +116,65 @@ app.get('/turno-disponible/:fecha/:inicio/:fin', function (req, res) {
 			.end();
 
 	});
+
+});
+
+app.post('/cerrar-turno', function (req, res) {
+
+	var response = {};
+	var importe = req.body.IMPORTE;
+	var pago = req.body.PAGO;
+	var id = req.body.ID;
+
+	var Turnos = db.define(TurnosDef.name, TurnosDef.model, {
+		tableName : TurnosDef.name,
+		timestamps : false
+	});
+
+	Turnos.find({ where : { ID : id }})
+		.then(function (data) {
+
+			var response = {};
+			if (data) {
+
+				if (data.IMPORTE == 0 && data.PAGO == 0) {
+
+					Turnos.update({
+						IMPORTE : importe,
+						PAGO : pago
+					}, { where : { ID : id }})
+					.then(function (data) {
+
+						if (data.dataValues)
+							response = data.dataValues;
+						else
+							response = data;
+
+						res.json(response)
+							.end();
+
+					});
+
+				} else {
+
+					response.err = 'El turno con ID ' + id + ' ya se encuentra cerrado.';
+
+					res.json(response)
+						.end();
+
+				}
+
+			} else {
+
+				response.err = 'ID ' + id + ' Inexsistente.';
+
+				res.json(response)
+					.end();
+
+			}
+
+		});
+
 
 });
 

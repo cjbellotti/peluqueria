@@ -166,7 +166,7 @@ App.Views.Calendar = Backbone.View.extend({
 		var box = $(this.turnoBox(turno));
 		var width = this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') == inicio }).width();
 		var height = this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') == inicio }).height();
-		var cant = this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') > inicio && $(this).attr('hs') < fin }).length + 2;
+		var cant = this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') > inicio && $(this).attr('hs') < fin }).length + 1;
 		box.width(width);
 		box.height(height * cant);
 		box.attr('id-turno', turno.ID);
@@ -175,16 +175,25 @@ App.Views.Calendar = Backbone.View.extend({
 		this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') == inicio }).attr('id-turno', turno.ID);
 		this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') == inicio }).html(box);
 		this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') == inicio }).addClass('hs-ini-turno');
-		this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') == fin }).addClass('hs-fin-turno');
-		this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') == fin }).attr('id-turno', turno.ID);
+		//this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') == fin }).addClass('hs-fin-turno');
+		//this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') == fin }).attr('id-turno', turno.ID);
+		if (this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') > inicio && $(this).attr('hs') < fin }).length == 0) {
+			this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') == inicio }).addClass('hs-ini-turno').addClass('hs-fin-turno');
+			this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') == inicio }).css('border-top', '1px solid');
+		} else {
+			this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') > inicio && $(this).attr('hs') < fin }).last().addClass('hs-fin-turno');
+			this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') > inicio && $(this).attr('hs') < fin }).last().attr('id-turno', turno.ID);		
+		}
 		this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') > inicio && $(this).attr('hs') < fin }).addClass('hs-body-turno');
 		this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') > inicio && $(this).attr('hs') < fin }).attr('id-turno', turno.ID);
 
 		this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') == inicio }).addClass(this.colores[turno.ID_PROFESIONAL]);
 		this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') == inicio }).addClass(this.colores[turno.ID_PROFESIONAL]);
 		this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') == inicio }).addClass(this.colores[turno.ID_PROFESIONAL]);
-		this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') == fin }).addClass(this.colores[turno.ID_PROFESIONAL]);
-		this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') == fin }).addClass(this.colores[turno.ID_PROFESIONAL]);
+		//this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') == fin }).addClass(this.colores[turno.ID_PROFESIONAL]);
+		//this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') == fin }).addClass(this.colores[turno.ID_PROFESIONAL]);
+		this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') > inicio && $(this).attr('hs') < fin }).last().addClass(this.colores[turno.ID_PROFESIONAL]);
+		this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') > inicio && $(this).attr('hs') < fin }).last().addClass(this.colores[turno.ID_PROFESIONAL]);
 		this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') > inicio && $(this).attr('hs') < fin }).addClass(this.colores[turno.ID_PROFESIONAL]);
 		this.$el.find("div[id-profesional='" + turno.ID_PROFESIONAL + "']").filter(function (index) { return $(this).attr('hs') > inicio && $(this).attr('hs') < fin }).addClass(this.colores[turno.ID_PROFESIONAL]);
 
