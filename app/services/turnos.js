@@ -38,6 +38,24 @@ app.get('/turnos-by-profesional/:id_profesional', function (req, res) {
 
 });
 
+app.get('/turno-by-id/:id_turno', function (req, res) {
+
+	var query = "SELECT T.ID as 'ID', FECHA, HORA_INI, HORA_FIN, CONCAT(C.NOMBRE, ' ', C.APELLIDO) AS 'CLIENTE', P.NOMBRE as 'PROFESIONAL'," + 
+				" T.DESCRIPCION as 'DESCRIPCION', IMPORTE, PAGO" + 
+				"  FROM TURNOS AS T, CLIENTES AS C, PROFESIONALES AS P WHERE T.ID = " + req.params.id_turno + 
+				" AND C.ID = T.ID_CLIENTE AND P.ID = T.ID_PROFESIONAL"
+
+	db.query(query, { type : db.QueryTypes.SELECT })
+		.then(function (rows) {
+
+		var data = rows[0] || {};
+		res.json(data)
+			.end();
+
+	});
+
+});
+
 app.get('/turnos-by-fecha/:fecha/:id_cliente?/:id_profesional?', function (req, res) {
 
 	var query = "SELECT T.ID as 'ID', FECHA, HORA_INI, HORA_FIN, ID_CLIENTE, CONCAT(C.NOMBRE, ' ', C.APELLIDO) AS 'CLIENTE', ID_PROFESIONAL, P.NOMBRE as 'PROFESIONAL', " + 

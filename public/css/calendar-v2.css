@@ -183,4 +183,26 @@
 	}
 	.turno-box > p {
 		font-size: 12px;
+		cursor : pointer;
+	}
+	.turno-tooltip {
+
+		background : #ADC2D6;
+		position : absolute;
+		top : 10px;
+		left : 500px;
+		width : 400px;
+		height : 150px;
+		border-radius : 10px;
+		-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+		-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+		box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);	
+
+	}
+
+	.turno-tooltip > div > h1 {
+		font-size: 20px;
+	}
+	.turno-tooltip > div {
+		padding : 5px;
 	}

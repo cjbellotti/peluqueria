@@ -6,6 +6,7 @@ App.Views.Calendar = Backbone.View.extend({
 		this.template = swig.compile(getTemplate('templates/calendar-v2.html'));
 		this.turnoTemplate = swig.compile(getTemplate('templates/turno.html'));
 		this.turnoBox = swig.compile(getTemplate('templates/turno-box.html'));
+		this.turnoTooltipTemplate = swig.compile(getTemplate('templates/turno-tooltip.html'));
 
 	},
 
@@ -13,7 +14,9 @@ App.Views.Calendar = Backbone.View.extend({
 
 		"click .turno" : "turno",
 		"click #ok" : "ok",
-		"change .fecha" : "cargarTurnos"
+		"change .fecha" : "cargarTurnos",
+		"mouseenter .turno-box" : "turnoTooltip",
+		"mouseleave .turno-box" : "cerrarTurnoTooptip"
 	},
 
 	turno : function (e) {
@@ -138,6 +141,42 @@ App.Views.Calendar = Backbone.View.extend({
 			}
 
 		});
+
+	},
+
+	turnoTooltip : function (e) {
+
+		if ($('.turno-tooltip').length > 0)
+			$('.turno-tooltip').remove();
+
+		var self = this;
+		var idTurno = $(e.target).attr('id-turno');
+		if (idTurno) {
+
+			$.get('/turno-by-id/' + idTurno, function (data) {
+
+				var tooltip = $(self.turnoTooltipTemplate(data));
+				var offset = $(e.target).offset();
+				var ventana = $(window);
+  				//var x = (e.pageX - offset.left);
+  				//var y = (e.pageY - offset.top);
+  				var x = (e.pageX);
+  				var y = (e.pageY);
+
+  				if (x + 400 > ventana.width())
+  					x -= 400;
+
+  				tooltip.css('left', x);
+  				tooltip.css('top', y);
+				$('#modals').append(tooltip);
+
+			});
+		}
+	},
+
+	cerrarTurnoTooptip : function (e) {
+
+		$('.turno-tooltip').remove();
 
 	},
 
