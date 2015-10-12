@@ -1,0 +1,55 @@
+<div class="list">
+  <div class="list-bar">
+    <div class="row">
+      <div class="col-md-3">
+		<label for="desde">Desde</label>
+		<input type="date" id="desde" class="form-control" name="desde" value="{{ desde }}">
+      </div>
+      <div class="col-md-3">
+		<label for="hasta">Hasta</label>
+		<input type="date" id="hasta" class="form-control" name="hasta" value="{{ hasta }}">
+      </div>
+      <div class="col-md-3">
+		<label for="cliente">Cliente</label>
+		<select id="cliente" name="cliente" class="form-control">
+			<option value="*">Todos</option>
+			{% for cliente in clientes %}
+				<option value="{{ cliente.ID }}">{{ cliente.NOMBRE }} {{ cliente.APELLIDO }}</option>
+			{% endfor %}
+		</select>
+      </div>
+      <div class="col-md-3" style="text-align : right">
+      	<button id="pago-nuevo" class="btn btn-success">+ Pago Nuevo</button>
+      </div>
+    </div>
+  </div>
+  <div class="reporte-tabla">
+	<table class="table table-hover tabla-historial">
+	  <thead>
+	  	<tr>
+			<th>Fecha</th>
+			<th>Cliente</th>
+			<th>Descripcion</th>
+			<th>Importe</th>
+		</tr>
+	  </thead>
+	  <tbody>
+		{% for pago in pagos %}
+		<tr>
+		  <td>{{ pago.FECHA | date('d-m-Y') }}</td>
+		  <td>{{ pago.CLIENTE }}</td>
+		  <td>{{ pago.DESCRIPCION }}</td>
+		  <td style="text-align : right">{{ pago.IMPORTE }}</td>
+		</tr>
+		{% endfor %}
+		<tr>
+			<td></td>
+			<td></td>
+			<td><strong>Totales</strong></td>
+			<td style="text-align : right">{{ total_importe }}</td>
+		</tr>
+	  </tbody>
+	</table>
+  </div>
+</div>  
+
